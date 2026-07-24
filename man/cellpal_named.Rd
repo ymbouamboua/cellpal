@@ -4,29 +4,28 @@
 \alias{cellpal_named}
 \title{Create a Named Palette Mapping}
 \usage{
-cellpal_named(levels, palette = "base", sort = FALSE, reverse = FALSE)
+cellpal_named(
+  levels,
+  palette = "base",
+  sort = FALSE,
+  reverse = FALSE,
+  direction = 1
+)
 }
 \arguments{
 \item{levels}{Character or factor vector containing category names.}
 
 \item{palette}{Name of a registered cellpal palette.}
 
-\item{sort}{Logical. Sort categories alphabetically before assigning
-colours.}
+\item{sort}{Logical. Sort categories alphabetically.}
 
 \item{reverse}{Logical. Reverse the palette.}
+
+\item{direction}{Either \code{1} or \code{-1}.}
 }
 \value{
-A named character vector with class \code{"cellpal"}.
+A named \code{"cellpal"} vector.
 }
 \description{
-Creates a stable named colour vector for categorical variables such as
-cell types, clusters, samples, or experimental groups.
-}
-\examples{
-cellpal_named(
-  c("T cell", "B cell", "Myeloid"),
-  palette = "nature"
-)
-
+Create a Named Palette Mapping
 }

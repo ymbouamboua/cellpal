@@ -65,8 +65,19 @@ cellpal_lightness <- function(
         "_lightness_",
         format(amount, trim = TRUE)
       )
+    ),
+    type = attr(
+      cols,
+      "palette_type",
+      exact = TRUE
+    ),
+    mode = attr(
+      cols,
+      "mode",
+      exact = TRUE
     )
   )
+
 }
 
 
@@ -342,117 +353,3 @@ cellpal_alpha <- function(
 }
 
 
-
-.is_palette_name <- function(
-    name
-) {
-  name %in% c(
-    names(cellpal_palettes),
-    cellpal_custom_names()
-  )
-}
-
-
-.validate_colour_positions <- function(
-    which,
-    number_of_colours
-) {
-  if (is.null(which)) {
-    return(seq_len(number_of_colours))
-  }
-
-  if (!is.numeric(which) ||
-      !length(which) ||
-      anyNA(which) ||
-      any(!is.finite(which)) ||
-      any(which != as.integer(which)) ||
-      any(which < 1L) ||
-      any(which > number_of_colours)) {
-    stop(
-      "`which` must contain integer positions between 1 and ",
-      number_of_colours,
-      ".",
-      call. = FALSE
-    )
-  }
-
-  unique(as.integer(which))
-}
-
-
-.validate_unit_amount <- function(
-    value,
-    argument,
-    lower,
-    upper
-) {
-  if (!is.numeric(value) ||
-      length(value) != 1L ||
-      is.na(value) ||
-      !is.finite(value) ||
-      value < lower ||
-      value > upper) {
-    stop(
-      "`",
-      argument,
-      "` must be a single numeric value between ",
-      lower,
-      " and ",
-      upper,
-      ".",
-      call. = FALSE
-    )
-  }
-
-  value
-}
-
-
-.require_colorspace <- function() {
-  if (!requireNamespace(
-    "colorspace",
-    quietly = TRUE
-  )) {
-    stop(
-      "Package `colorspace` is required. Install it with ",
-      "`install.packages(\"colorspace\")`.",
-      call. = FALSE
-    )
-  }
-
-  invisible(TRUE)
-}
-
-
-.new_cellpal <- function(
-    colours,
-    palette = "custom",
-    type = NULL
-) {
-  structure(
-    as.character(colours),
-    class = c("cellpal", "character"),
-    palette = palette,
-    palette_type = type
-  )
-}
-
-
-.modified_palette_name <- function(
-    palette,
-    suffix
-) {
-  original_name <- attr(
-    palette,
-    "palette",
-    exact = TRUE
-  )
-
-  if (is.null(original_name) ||
-      !length(original_name) ||
-      is.na(original_name)) {
-    original_name <- "custom"
-  }
-
-  paste0(original_name, suffix)
-}

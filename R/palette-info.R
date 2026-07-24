@@ -67,3 +67,46 @@ cellpal_info <- data.frame(
   stringsAsFactors = FALSE
 )
 
+
+#' Retrieve Information about a cellpal Palette
+#'
+#' @param palette Character string naming a registered palette.
+#'
+#' @return An object of class `"cellpal_palette_info"`.
+#'
+#' @examples
+#' cellpal_palette_info("nature")
+#'
+#' @export
+cellpal_palette_info <- function(
+    palette
+) {
+  palette <- .validate_palette_name(palette)
+
+  colours <- .get_cellpal_palette(palette)
+  palette_type <- .get_cellpal_palette_type(palette)
+  source <- .get_cellpal_palette_source(palette)
+
+  metadata <- cellpal_info[
+    cellpal_info$name == palette,
+    ,
+    drop = FALSE
+  ]
+
+  if (!nrow(metadata)) {
+    metadata <- NULL
+  }
+
+  structure(
+    list(
+      name = palette,
+      colours = colours,
+      n_colours = length(colours),
+      type = palette_type,
+      source = source,
+      metadata = metadata
+    ),
+    class = "cellpal_palette_info"
+  )
+}
+

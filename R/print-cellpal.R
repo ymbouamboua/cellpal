@@ -1,30 +1,52 @@
 #' Print a cellpal palette
 #'
-#' @param x A cellpal object.
+#' @param x A `cellpal` object.
 #' @param ... Additional arguments.
 #'
 #' @return Invisibly returns `x`.
+#'
 #' @export
-print.cellpal <- function(x, ...) {
-  palette_name <- attr(x, "palette")
+print.cellpal <- function(
+    x,
+    ...
+) {
+  palette_name <- attr(
+    x,
+    "palette",
+    exact = TRUE
+  ) %||% "custom"
 
-  cat(
-    "<cellpal: ",
-    palette_name,
-    ">\n",
-    sep = ""
+  palette_type <- attr(
+    x,
+    "palette_type",
+    exact = TRUE
+  )
+
+  mode <- attr(
+    x,
+    "mode",
+    exact = TRUE
+  )
+
+  cat("<cellpal palette>\n")
+  cat("Name:    ", palette_name, "\n", sep = "")
+  cat("Type:    ", palette_type %||% "unknown", "\n", sep = "")
+  cat("Mode:    ", mode %||% "unspecified", "\n", sep = "")
+  cat("Colours: ", length(x), "\n", sep = "")
+
+  formatted <- paste0(
+    seq_along(x),
+    ": ",
+    unclass(x)
   )
 
   cat(
     paste(
-      seq_along(x),
-      unclass(x),
-      sep = ": "
+      formatted,
+      collapse = "\n"
     ),
-    sep = "\n"
+    "\n"
   )
-
-  cat("\n")
 
   invisible(x)
 }

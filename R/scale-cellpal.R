@@ -1,14 +1,17 @@
-#' cellpal colour scale for ggplot2
+#' Discrete cellpal colour scales
 #'
 #' @param palette Name of a cellpal palette.
 #' @param reverse Logical. Reverse the palette.
-#' @param ... Arguments passed to the ggplot2 scale.
+#' @param direction Either `1` or `-1`.
+#' @param ... Additional arguments passed to ggplot2.
 #'
 #' @return A ggplot2 scale.
+#'
 #' @export
-scale_colour_cellpal <- function(
+scale_colour_cellpal_d <- function(
     palette = "nature",
     reverse = FALSE,
+    direction = 1,
     ...
 ) {
   ggplot2::discrete_scale(
@@ -19,22 +22,26 @@ scale_colour_cellpal <- function(
         palette = palette,
         n = n,
         type = "discrete",
-        reverse = reverse
+        reverse = reverse,
+        direction = direction
       )
     },
     ...
   )
 }
 
-#' @rdname scale_colour_cellpal
-#' @export
-scale_color_cellpal <- scale_colour_cellpal
 
-#' @rdname scale_colour_cellpal
+#' @rdname scale_colour_cellpal_d
 #' @export
-scale_fill_cellpal <- function(
+scale_color_cellpal_d <- scale_colour_cellpal_d
+
+
+#' @rdname scale_colour_cellpal_d
+#' @export
+scale_fill_cellpal_d <- function(
     palette = "nature",
     reverse = FALSE,
+    direction = 1,
     ...
 ) {
   ggplot2::discrete_scale(
@@ -45,7 +52,8 @@ scale_fill_cellpal <- function(
         palette = palette,
         n = n,
         type = "discrete",
-        reverse = reverse
+        reverse = reverse,
+        direction = direction
       )
     },
     ...
@@ -53,44 +61,61 @@ scale_fill_cellpal <- function(
 }
 
 
-.cellpal_discrete <- function(cols, n) {
-  if (n <= length(cols)) {
-    return(cols[seq_len(n)])
-  }
+#' Continuous cellpal colour scales
+#'
+#' @inheritParams scale_colour_cellpal_d
+#'
+#' @return A ggplot2 scale.
+#'
+#' @export
+scale_colour_cellpal_c <- function(
+    palette = "viridis",
+    reverse = FALSE,
+    direction = 1,
+    ...
+) {
+  colours <- cellpal(
+    palette = palette,
+    n = 256,
+    type = "continuous",
+    reverse = reverse,
+    direction = direction
+  )
 
-  candidates_n <- max(256L, n * 20L)
-
-  candidates <- grDevices::colorRampPalette(
-    cols,
-    space = "Lab"
-  )(candidates_n)
-
-  candidates <- unique(toupper(candidates))
-
-  rgb <- grDevices::col2rgb(candidates) / 255
-
-  keep <- apply(rgb, 2L, function(x) {
-    max(x) - min(x) > 0.08
-  })
-
-  candidates <- candidates[keep]
-
-  if (length(candidates) < n) {
-    warning(
-      "Could not generate enough distinct colours after filtering.",
-      call. = FALSE
-    )
-
-    candidates <- grDevices::colorRampPalette(cols)(n)
-    return(candidates)
-  }
-
-  idx <- unique(round(seq(
-    from = 1,
-    to = length(candidates),
-    length.out = n
-  )))
-
-  candidates[idx][seq_len(n)]
+  ggplot2::continuous_scale(
+    aesthetics = "colour",
+    scale_name = "cellpal",
+    palette = scales::gradient_n_pal(colours),
+    ...
+  )
 }
 
+
+#' @rdname scale_colour_cellpal_c
+#' @export
+scale_color_cellpal_c <- scale_colour_cellpal_c
+
+
+#' @rdname scale_colour_cellpal_c
+#' @export
+scale_fill_cellpal_c <- function(
+    palette = "viridis",
+    reverse = FALSE,
+    direction = 1,
+    ...
+) {
+  colours <- cellpal(
+    palette = palette,
+    n = 256,
+    type = "continuous",
+    reverse = reverse,
+    direction = direction
+  )
+
+  ggplot2::continuous_scale(
+    aesthetics = "fill",
+    scale_name = "cellpal",
+    palette = scales::gradient_n_pal(colours),
+    ...
+  )
+}

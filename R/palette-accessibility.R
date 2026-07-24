@@ -275,6 +275,19 @@ cellpal_distances <- function(
     parent.frame()
   )
 
+  if (length(cols) < 2L) {
+    return(
+      data.frame(
+        colour_1_index = integer(),
+        colour_2_index = integer(),
+        colour_1 = character(),
+        colour_2 = character(),
+        distance = numeric(),
+        stringsAsFactors = FALSE
+      )
+    )
+  }
+
   lab <- methods::as(
     colorspace::hex2RGB(cols),
     "LAB"
@@ -294,8 +307,8 @@ cellpal_distances <- function(
   data.frame(
     colour_1_index = indexes[, 1],
     colour_2_index = indexes[, 2],
-    colour_1 = cols[indexes[, 1]],
-    colour_2 = cols[indexes[, 2]],
+    colour_1 = unclass(cols[indexes[, 1]]),
+    colour_2 = unclass(cols[indexes[, 2]]),
     distance = distance_matrix[indexes],
     stringsAsFactors = FALSE
   )

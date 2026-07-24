@@ -18,18 +18,13 @@ cellpal_register(
 
 \item{type}{Palette type: \code{"categorical"}, \code{"sequential"}, or \code{"diverging"}.}
 
-\item{overwrite}{Logical. Allow replacement of an existing custom palette.}
+\item{overwrite}{Logical. Replace an existing custom palette.}
 }
 \value{
-Invisibly returns the registered colour vector.
+Invisibly returns the registered palette.
 }
 \description{
 Registers a custom palette for the current R session.
-}
-\details{
-Because package objects are locked after loading, custom palettes are stored
-in an internal session registry rather than modifying the built-in palette
-object directly.
 }
 \examples{
 cellpal_register(

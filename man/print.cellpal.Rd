@@ -7,7 +7,7 @@
 \method{print}{cellpal}(x, ...)
 }
 \arguments{
-\item{x}{A cellpal object.}
+\item{x}{A \code{cellpal} object.}
 
 \item{...}{Additional arguments.}
 }

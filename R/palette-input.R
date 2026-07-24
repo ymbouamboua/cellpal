@@ -1,26 +1,53 @@
 # ============================================================
-# Internal palette input resolver
+# Palette input resolution
 # ============================================================
 
-#' Resolve cellpal Input
-#'
-#' Internal helper that converts a palette name, a `cellpal` object, or a
-#' character vector of colours into a validated `cellpal` object.
-#'
-#' @param expression Unevaluated palette expression.
-#' @param environment Environment in which the expression should be evaluated.
-#'
-#' @return A `cellpal` object.
-#'
-#' @keywords internal
-#' @noRd
+.resolve_cellpal_name <- function(
+    expression,
+    environment
+) {
+  if (is.character(expression) &&
+      length(expression) == 1L) {
+    return(expression)
+  }
+  
+  if (is.name(expression)) {
+    candidate <- as.character(expression)
+    
+    if (.is_palette_name(candidate)) {
+      return(candidate)
+    }
+  }
+  
+  value <- tryCatch(
+    eval(
+      expression,
+      envir = environment
+    ),
+    error = function(error) {
+      NULL
+    }
+  )
+  
+  if (is.character(value) &&
+      length(value) == 1L &&
+      !is.na(value) &&
+      nzchar(value)) {
+    return(value)
+  }
+  
+  stop(
+    "`palette` must be a valid quoted or unquoted palette name.",
+    call. = FALSE
+  )
+}
+
+
 .resolve_cellpal_input <- function(
     expression,
     environment
 ) {
-  # Quoted palette name or direct colour vector
   if (is.character(expression)) {
-
     if (length(expression) == 1L &&
         .is_palette_name(expression)) {
       return(
@@ -31,21 +58,17 @@
         )
       )
     }
-
+    
     return(
       .new_cellpal(
-        .validate_colour_vector(expression),
-        palette = "custom",
-        type = NULL
+        .validate_colour_vector(expression)
       )
     )
   }
-
-  # Unquoted palette name, for example:
-  # cellpal_view(nature)
+  
   if (is.name(expression)) {
     candidate <- as.character(expression)
-
+    
     if (.is_palette_name(candidate)) {
       return(
         .new_cellpal(
@@ -56,14 +79,7 @@
       )
     }
   }
-
-  # Evaluate variables:
-  #
-  # pal <- "nature"
-  # cellpal_view(pal)
-  #
-  # cols <- c("#000000", "#FFFFFF")
-  # cellpal_view(cols)
+  
   value <- tryCatch(
     eval(
       expression,
@@ -73,11 +89,11 @@
       NULL
     }
   )
-
+  
   if (inherits(value, "cellpal")) {
     return(value)
   }
-
+  
   if (is.character(value) &&
       length(value) == 1L &&
       .is_palette_name(value)) {
@@ -89,17 +105,15 @@
       )
     )
   }
-
+  
   if (is.character(value) && length(value)) {
     return(
       .new_cellpal(
-        .validate_colour_vector(value),
-        palette = "custom",
-        type = NULL
+        .validate_colour_vector(value)
       )
     )
   }
-
+  
   stop(
     "`palette` must be a registered palette name, a `cellpal` object, ",
     "or a character vector of valid R colours.",

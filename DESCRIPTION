@@ -23,7 +23,7 @@ Imports:
     ggplot2,
     grDevices,
     methods,
-    stats
+    scales
 Suggests:
     Seurat,
     SeuratObject,

@@ -10,14 +10,10 @@ cellpal_unregister(name)
 \item{name}{Name of a custom palette.}
 }
 \value{
-Invisibly returns \code{TRUE} when the palette is removed.
+Invisibly returns \code{TRUE}.
 }
 \description{
-Removes a palette previously added with
-\link[=cellpal_register]{cellpal_register()}.
-}
-\details{
-Built-in palettes cannot be removed.
+Remove a Custom Palette
 }
 \examples{
 cellpal_register("temporary", c("#000000", "#FFFFFF"))

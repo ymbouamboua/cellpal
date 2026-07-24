@@ -1,0 +1,9 @@
+utils::globalVariables(
+  c(
+    "colour",
+    "colour_index",
+    "palette",
+    "text_colour",
+    "vision"
+  )
+)

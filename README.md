@@ -1,4 +1,10 @@
 
+<div align="center">
+
+<img src="man/figures/cellpal_logo.svg" width="300" alt="cellpal logo"/>
+
+</div>
+
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd only. -->
 
 # cellpal

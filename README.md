@@ -7,12 +7,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd only. -->
 
-# cellpal
-
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ymbouamboua/cellpal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ymbouamboua/cellpal/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle:
+![R](https://img.shields.io/badge/R-%3E%3D4.3-blue) [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

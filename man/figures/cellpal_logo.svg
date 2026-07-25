@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1002 1182">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
+  <defs>
+    <style>
+      .st0, .st1 {
+        fill: #c8a2c8;
+      }
+
+      .st1, .st2, .st3, .st4, .st5 {
+        stroke-width: 16px;
+      }
+
+      .st1, .st3, .st4, .st5 {
+        stroke: #fff;
+      }
+
+      .st6 {
+        fill: #d46a6a;
+      }
+
+      .st2 {
+        fill: none;
+        opacity: .75;
+        stroke: #bfd7e5;
+        stroke-linecap: round;
+      }
+
+      .st2, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st14 {
+        isolation: isolate;
+      }
+
+      .st7 {
+        font-family: Arial-Black, 'Arial Black';
+        font-size: 170px;
+        font-weight: 800;
+        stroke-miterlimit: 10;
+      }
+
+      .st8 {
+        fill: #5b2933;
+      }
+
+      .st8, .st12 {
+        opacity: .3;
+      }
+
+      .st15 {
+        fill: url(#linear-gradient);
+        stroke: #e9f3f8;
+        stroke-linejoin: round;
+        stroke-width: 22px;
+      }
+
+      .st16 {
+        fill: #6ec5e9;
+      }
+
+      .st17 {
+        fill: #f2b46d;
+      }
+
+      .st18 {
+        fill: #ffa63f;
+        stroke: #1c75bc;
+      }
+
+      .st9 {
+        fill: #bfd7e5;
+        font-family: ArialMT, Arial;
+        font-size: 50px;
+        letter-spacing: .15em;
+      }
+
+      .st10 {
+        fill: #214b3a;
+        opacity: .32;
+      }
+
+      .st11 {
+        fill: #15344a;
+        opacity: .35;
+      }
+
+      .st19 {
+        fill: #a4d4ae;
+      }
+
+      .st20 {
+        fill: #e8d07b;
+      }
+
+      .st3 {
+        fill: url(#linear-gradient3);
+      }
+
+      .st4 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st5 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st12 {
+        fill: #51345f;
+      }
+
+      .st21 {
+        fill: #1c75bc;
+        stroke: #00bfbd;
+      }
+
+      .st13 {
+        opacity: .7;
+      }
+
+      .st13, .st14 {
+        fill: #fff;
+      }
+
+      .st14 {
+        opacity: .72;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="356.53" y1="941.36" x2="357.53" y2="940.36" gradientTransform="translate(-349393 1091991) scale(980 -1160)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b3a57"/>
+      <stop offset="1" stop-color="#0f2438"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="355.1" y1="942.75" x2="356.1" y2="941.75" gradientTransform="translate(-85073 226611) scale(240 -240)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6ec5e9"/>
+      <stop offset="1" stop-color="#2d7fb8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="354.76" y1="943.06" x2="355.76" y2="942.06" gradientTransform="translate(-71963 192673) scale(204 -204)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2b46d"/>
+      <stop offset="1" stop-color="#d46a6a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient3" x1="354.96" y1="942.88" x2="355.96" y2="941.88" gradientTransform="translate(-78933 211653) scale(224 -224)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a4d4ae"/>
+      <stop offset="1" stop-color="#4f9d78"/>
+    </linearGradient>
+  </defs>
+  <polygon class="st15" points="501 11 991 291 991 891 501 1171 11 891 11 291 501 11"/>
+  <circle class="st16" cx="201" cy="276" r="38"/>
+  <circle class="st17" cx="306" cy="206" r="38"/>
+  <circle class="st19" cx="421" cy="176" r="38"/>
+  <circle class="st0" cx="541" cy="186" r="38"/>
+  <circle class="st20" cx="656" cy="231" r="38"/>
+  <circle class="st6" cx="756" cy="311" r="38"/>
+  <line class="st2" x1="271" y1="471" x2="511" y2="391"/>
+  <line class="st2" x1="511" y1="391" x2="691" y2="561"/>
+  <line class="st2" x1="271" y1="471" x2="386" y2="686"/>
+  <line class="st2" x1="386" y1="686" x2="691" y2="561"/>
+  <g>
+    <circle class="st4" cx="271" cy="471" r="120"/>
+    <circle class="st14" cx="241" cy="446" r="38"/>
+    <circle class="st11" cx="303" cy="501" r="24"/>
+  </g>
+  <g>
+    <circle class="st5" cx="511" cy="391" r="102"/>
+    <circle class="st14" cx="479" cy="366" r="30"/>
+    <circle class="st8" cx="543" cy="416" r="22"/>
+  </g>
+  <g>
+    <circle class="st3" cx="691" cy="561" r="112"/>
+    <circle class="st14" cx="656" cy="531" r="34"/>
+    <circle class="st10" cx="724" cy="593" r="24"/>
+  </g>
+  <g>
+    <circle class="st1" cx="386" cy="686" r="92"/>
+    <circle class="st13" cx="361" cy="661" r="28"/>
+    <circle class="st12" cx="411" cy="709" r="20"/>
+  </g>
+  <text class="st7" transform="translate(179.61 932.72)"><tspan class="st21" x="0" y="0">cell</tspan><tspan class="st18" x="340" y="0">pal</tspan></text>
+  <text class="st9" transform="translate(279 1010.801)"><tspan x="0" y="0">Colour Palettes</tspan></text>
+</svg>
